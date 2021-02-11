@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_09_01_000825) do
     t.string "model"
     t.decimal "miles"
     t.string "color"
+    t.string "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
