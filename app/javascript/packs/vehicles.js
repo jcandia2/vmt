@@ -6,7 +6,6 @@ function setVinValues() {
     dataType: "json",
     success: function (result) {
       var vehicleData = result.Results
-      console.log(vehicleData)
       if (vehicleData.length > 0) {
         $('#vehicle_year').val(vehicleData[0]["ModelYear"]);
         $('#vehicle_make').val(vehicleData[0]["Make"]);
@@ -24,7 +23,6 @@ function setVinValues() {
 };
 
 $(document).on("turbolinks:load", () => {
-  console.log('im here');
   $('#vin-api-refresh').on("click", (e) => {
     e.stopPropagation();
     e.preventDefault();
