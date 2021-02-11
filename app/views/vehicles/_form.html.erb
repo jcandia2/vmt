@@ -1,18 +1,24 @@
-
 <%= simple_form_for(@vehicle) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :vin %>
-    <%= f.input :year %>
-    <%= f.input :make %>
-    <%= f.input :model %>
-    <%= f.input :miles %>
-    <%= f.input :color %>
-  </div>
+<div class="form-inputs">
+  <label>
+    * Vin
+    <i id="vin-api-refresh" class="fa fa-refresh update-vin-values btn btn-primary" aria-hidden="true"></i>
+    <span id="no-data-found" class="text-warning"></span>
+    <br />
+    <small>Press button to pull values from VIN.</small>
+  </label>
+  <%= f.input :vin, label: false %>
+  <%= f.input :year %>
+  <%= f.input :make %>
+  <%= f.input :model %>
+  <%= f.input :miles %>
+  <%= f.input :color %>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<div class=" form-actions">
+      <%= f.button :submit, class: "btn btn-primary mb-1" %>
+</div>
 <% end %>
