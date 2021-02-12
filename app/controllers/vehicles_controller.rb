@@ -1,10 +1,10 @@
 class VehiclesController < ApplicationController
-  before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
+  before_action :set_vehicle, only: [:show, :edit, :update, :destroy, :services]
 
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = current_user.vehicles
+    @vehicles = current_user&.vehicles
   end
 
   # GET /vehicles/1
@@ -29,7 +29,7 @@ class VehiclesController < ApplicationController
 
     respond_to do |format|
       if @vehicle.save
-        format.html { redirect_to @vehicle, notice: 'Vehicle was successfully created.' }
+        format.html { redirect_to vehicles_url, notice: 'Vehicle was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class VehiclesController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle.update(vehicle_params)
-        format.html { redirect_to @vehicle, notice: 'Vehicle was successfully updated.' }
+        format.html { redirect_to vehicles_url, notice: 'Vehicle was successfully updated.' }
         format.json { render :show, status: :ok, location: @vehicle }
       else
         format.html { render :edit }
@@ -62,10 +62,14 @@ class VehiclesController < ApplicationController
     end
   end
 
+  # GET /vehicles/1/services
+  def services; end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle
       @vehicle = Vehicle.find(params[:id])
+      @services = Service.where(vehicle_id: params[:id]).order(created_at: :desc)
     end
 
     # Only allow a list of trusted parameters through.

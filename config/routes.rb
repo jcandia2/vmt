@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  resources :vehicles
-  root to: 'pages#home'
-  get 'pages/home'
+  root to: 'vehicles#index'
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :services
+  resources :vehicles do
+    member do
+      get "services"
+    end
+    collection do
+
+    end
+  end
 end

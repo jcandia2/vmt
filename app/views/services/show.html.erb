@@ -1,0 +1,50 @@
+<div>
+  <h2><strong>Service or Part Description: </strong><%= @service.name %></h2>
+
+  <div class="row">
+    <div class="col-sm">
+      <p>
+        <strong>Date of Service: </strong>
+        <%= @service.date_of_service.strftime("%m/%d/%Y") %>
+      </p>
+    </div>
+    <div class="col-sm">
+      <p>
+        <strong>Mileage: </strong>
+        <%= @service.miles %>
+      </p>
+    </div>
+    <div class="col-sm">
+      <p>
+        <strong>Warranty length: </strong>
+        <%= @service.warranty_length %>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <p>
+        <strong>Warranty length: </strong>
+        <%= @service.warranty_length %>
+      </p>
+    </div>
+    <div class="col-sm">
+      <p>
+        <strong>Cost: </strong>
+        <%= @service.cost %>
+      </p>
+    </div>
+  </div>
+
+  <div>
+    <p>
+      <strong>Notes:</strong>
+      <br />
+      <%= @service.notes %>
+    </p>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_vehicle_path(id: @vehicle.id) %>

@@ -1,0 +1,55 @@
+<% if notice %>
+  <p id="notice" class="alert alert-success">
+    <%= notice %>
+  </p>
+<% end %>
+
+<h1>SERVICE <strong>HISTORY</strong></h1>
+<p>Track your vehicle's services</p>
+<% if @services %>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Miles</th>
+        <th>Date of Service</th>
+        <th>Warranty</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @services.each do |service| %>
+        <tr>
+          <td>
+            <%= service.name %>
+          </td>
+          <td>
+            <%= service.miles %>
+          </td>
+          <td>
+            <%= service.date_of_service.strftime("%m/%d/%Y") %>
+          </td>
+          <td>
+            <%= service.warranty_length %>
+          </td>
+          <td>
+            <%= link_to service_path(id: service.id) do %>
+              <i class="fa fa-eye mr-2" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to edit_service_path(id: service.id) do %>
+              <i class="fa fa-pencil mr-2" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to service_path(id: service.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fa fa-trash mr-2" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+<% end %>
+<div>
+  <%= link_to 'Add Service' , new_service_path(id: @vehicle.id), class: "btn btn-primary" %>
+</div>
+<%= link_to 'Back', vehicles_path %>

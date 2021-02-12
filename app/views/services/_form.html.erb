@@ -1,0 +1,32 @@
+
+<%= simple_form_for(@service) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name, label: "Service or Part Description" %>
+    <%= f.input :date_of_service, as: :date %>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.input :miles, label: "Mileage" %>
+      </div>
+      <div class="col-sm">
+        <%= f.input :warranty_length %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.input :location, label: "Service/Part Provider" %>
+      </div>
+      <div class="col-sm">
+        <%= f.input :cost %>
+      </div>
+    </div>
+    <%= f.input :notes %>
+    <%= f.input :vehicle_id, as: :hidden, input_html: {value: @vehicle.id} %>
+  </div>
+
+  <div class="form-actions btn btn-primary">
+    <%= f.button :submit %>
+  </div>
+<% end %>
