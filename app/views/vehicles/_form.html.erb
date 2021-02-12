@@ -4,8 +4,8 @@
 
 <div class="form-inputs">
   <label>
-    * Vin
-    <i id="vin-api-refresh" class="fa fa-refresh update-vin-values btn btn-primary" aria-hidden="true"></i>
+    <button id="vin-api-refresh" class="update-vin-values btn btn-sm btn-primary mr-1">VIN Lookup</button>
+    
     <span id="no-data-found" class="text-warning"></span>
     <br />
     <small>Press button to pull values from VIN.</small>
@@ -19,6 +19,6 @@
 </div>
 
 <div class=" form-actions">
-      <%= f.button :submit, class: "btn btn-primary mb-1" %>
+  <%= f.button :submit, class: "btn btn-primary mb-1" %>
 </div>
 <% end %>
