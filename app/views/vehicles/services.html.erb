@@ -34,14 +34,14 @@
             <%= service.warranty_length %>
           </td>
           <td>
-            <%= link_to service_path(id: service.id) do %>
-              <i class="fa fa-eye mr-2" aria-hidden="true"></i>
+            <%= link_to service_path(id: service.id), class: "btn btn-sm btn-primary" do %>
+              View
             <% end %>
-            <%= link_to edit_service_path(id: service.id) do %>
-              <i class="fa fa-pencil mr-2" aria-hidden="true"></i>
+            <%= link_to edit_service_path(id: service.id), class: "btn btn-sm btn-primary" do %>
+              Edit
             <% end %>
-            <%= link_to service_path(id: service.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <i class="fa fa-trash mr-2" aria-hidden="true"></i>
+            <%= link_to service_path(id: service.id), method: :delete, class: "btn btn-sm btn-primary", data: { confirm: 'Are you sure?' } do %>
+              Delete
             <% end %>
           </td>
         </tr>
