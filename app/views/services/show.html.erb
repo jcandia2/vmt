@@ -44,6 +44,12 @@
       <%= @service.notes %>
     </p>
   </div>
+  <% if @service.receipt_image.attached? %>
+    <%= image_tag url_for(@service.receipt_image.variant(resize: '500x500').processed), class: "img-fluid" %>
+  <% else %>
+    <div class="receipt-picture no-receipt-picture"></div>
+  <% end %>
+
 </div>
 
 <%= link_to 'Edit', edit_service_path(@service) %> |

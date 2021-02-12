@@ -4,6 +4,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+    <%= f.input :vehicle_id, as: :hidden, input_html: {value: @vehicle.id} %>
     <%= f.input :name, label: "Service or Part Description" %>
     <%= f.input :date_of_service, as: :date %>
     <div class="row">
@@ -23,7 +24,28 @@
       </div>
     </div>
     <%= f.input :notes %>
-    <%= f.input :vehicle_id, as: :hidden, input_html: {value: @vehicle.id} %>
+    <div class="form-group">
+      <% if @service.receipt_image.attached? && @service.receipt_image.representable? %>
+        <%= image_tag @service.receipt_image.variant(resize: '100x100').processed %>
+        <div class="upload-hider-labels">
+          <%= link_to '#', class: 'replace-upload' do %>
+            Replace Current Image
+          <% end %>
+          <span class="separator-bar">|</span>
+          <%= link_to 'Remove Image without replacing',
+            delete_receipt_service_url(receipt_id: @service.receipt_image.id),
+            method: :delete,
+            data: { confirm: 'Are you sure?' },
+            class: 'remove-upload'
+          %>
+        </div>
+      <% else %>
+        <div class="receipt-picture no-receipt-picture"></div>
+      <% end %>
+      <div class="upload-hider-fields">
+        <%= f.file_field :receipt_image, class: 'form-control' %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions btn btn-primary">

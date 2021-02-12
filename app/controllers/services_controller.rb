@@ -66,6 +66,12 @@ class ServicesController < ApplicationController
     end
   end
 
+  def delete_receipt
+    receipt = ActiveStorage::Attachment.find(params[:receipt_id])
+    receipt.purge
+    redirect_back(fallback_location: request.referer)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service
@@ -88,7 +94,8 @@ class ServicesController < ApplicationController
         :location,
         :notes,
         :cost,
-        :vehicle_id
+        :vehicle_id,
+        :receipt_image
       )
     end
 end
