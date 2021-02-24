@@ -24,6 +24,7 @@
       </div>
     </div>
     <%= f.input :notes %>
+    <p class="mb-1">Receipt</p>
     <div class="form-group">
       <% if @service.receipt_image.attached? && @service.receipt_image.representable? %>
         <%= image_tag @service.receipt_image.variant(resize: '100x100').processed %>

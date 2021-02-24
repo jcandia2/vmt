@@ -5,10 +5,10 @@
 <% end %>
 
 
-<h1>My Vehicles</h1>
+<h1 class="vehicles-heading">My Vehicles</h1>
 
 <% if @vehicles %>
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-hover fit-table">
     <thead>
       <tr>
         <th>Vin</th>
@@ -25,6 +25,7 @@
       <% @vehicles.each do |vehicle| %>
       <tr>
         <td>
+          <span class="mobile-heading">vin</span>
           <%= vehicle.vin %>
           <div>
             <small>
@@ -33,11 +34,26 @@
             </small>
           </div>
         </td>
-        <td><%= vehicle.year %></td>
-        <td><%= vehicle.make %></td>
-        <td><%= vehicle.model %></td>
-        <td><%= vehicle.miles %></td>
-        <td><%= vehicle.color %></td>
+        <td>
+          <span class="mobile-heading">year</span>
+          <%= vehicle.year %>
+        </td>
+        <td>
+          <span class="mobile-heading">make </span>
+          <%= vehicle.make %>
+        </td>
+        <td>
+          <span class="mobile-heading">model</span>
+          <%= vehicle.model %>
+        </td>
+        <td>
+          <span class="mobile-heading">miles</span>
+          <%= vehicle.miles %>
+        </td>
+        <td>
+          <span class="mobile-heading">color</span>
+          <%= vehicle.color %>
+        </td>
         <td class="text-center">
           <%= link_to 'Edit', edit_vehicle_path(vehicle), class: "btn btn-info" %>
           <%= link_to 'Destroy' , vehicle, class: "btn btn-danger" , method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -53,8 +69,9 @@
 <% else %>
   <br />
   <br />
-  Create Account or Login to access your vehicles
-  <br />
+  <h3>
+    Create Account or Login to access your vehicles
+  </h3>
   <%= link_to "Create Account" , new_user_registration_path, class:"btn btn-primary" %>
   <%= link_to "Login" , new_user_session_path, class:"btn btn-primary" %>
 <% end %>

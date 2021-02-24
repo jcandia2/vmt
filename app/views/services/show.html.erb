@@ -3,46 +3,46 @@
 
   <div class="row">
     <div class="col-sm">
-      <p>
+      <h4>
         <strong>Date of Service: </strong>
         <%= @service.date_of_service.strftime("%m/%d/%Y") %>
-      </p>
+      </h4>
     </div>
     <div class="col-sm">
-      <p>
+      <h4>
         <strong>Mileage: </strong>
         <%= @service.miles %>
-      </p>
+      </h4>
     </div>
     <div class="col-sm">
-      <p>
+      <h4>
         <strong>Warranty length: </strong>
         <%= @service.warranty_length %>
-      </p>
+      </h4>
     </div>
   </div>
 
   <div class="row">
     <div class="col-sm">
-      <p>
+      <h4>
         <strong>Warranty length: </strong>
         <%= @service.warranty_length %>
-      </p>
+      </h4>
     </div>
     <div class="col-sm">
-      <p>
+      <h4>
         <strong>Cost: </strong>
         <%= @service.cost %>
-      </p>
+      </h4>
     </div>
   </div>
 
   <div>
-    <p>
+    <h4>
       <strong>Notes:</strong>
       <br />
       <%= @service.notes %>
-    </p>
+    </h4>
   </div>
   <% if @service.receipt_image.attached? %>
     <%= image_tag url_for(@service.receipt_image.variant(resize: '500x500').processed), class: "img-fluid" %>

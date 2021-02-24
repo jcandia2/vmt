@@ -1,0 +1,108 @@
+@import "colors.scss";
+@import "breakpoints.scss";
+
+html, body {
+  font-style: normal;
+  font-weight: 400;
+  overflow-x: hidden !important;
+  position: relative;
+  background-color: #eee;
+  color: #5C5F58;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.container-fluid {
+  width: 100%;
+  max-width: 100%;
+}
+
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 5px 20px;
+  margin-bottom: 10px;
+  a {
+    color:$blue;
+  }
+  .navbar-brand {
+    display: inline-block;
+    width: 150px !important;
+    @include respond-to-max(768) {
+      margin: 0;
+      width: 50px !important;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .nav-item {
+    .nav-link {
+      text-align: right;
+      font-size: 30px;
+      color: $blue !important;
+    }
+  }
+  .navbar-toggler{
+    width: 80px;
+    height: 68px;
+    background-color: $blue;
+    border:none;
+    @include respond-to-max(768) {
+      width: 47px;
+      height: 34px;
+    }
+  }
+  .navbar-toggler .line{
+      width: 100%;
+      float: left;
+      height: 2px;
+      background-color: #fff;
+      margin-bottom: 5px;
+  }
+}
+
+.vehicles-heading {
+  text-align: center;
+  @include respond-to(768) {
+    text-align: left;
+  }
+}
+
+.fit-table {
+  width: 100%;
+  border: none !important;
+  thead {
+    display: none;
+    @include respond-to(768) {
+      display: table-header-group;
+    }
+  }
+  .mobile-heading {
+    text-transform: capitalize;
+    font-weight: bolder;
+    @include respond-to(768) {
+      display: none;
+    }
+  }
+  tr {
+    display: block;
+    margin: 20px 10px 0px 10px;
+    border: 1px solid $blue;
+    @include respond-to(768) {
+      display: table-row;
+      margin: 0px;
+    }
+    td {
+      display: block;
+      text-align: center;
+      border: 1px solid $blue;
+      @include respond-to(768) {
+        display: table-cell;
+      }
+    }
+  }
+}
