@@ -34,4 +34,9 @@ $(document).on("turbolinks:load", () => {
     uploadLabels.hide();
     return uploadFields.show();
   })
+
+  // Hides notifications after 7 seconds
+  var notification = setTimeout(function () {
+    $('#notice').fadeOut('slow');
+  }, 3000);
 });
