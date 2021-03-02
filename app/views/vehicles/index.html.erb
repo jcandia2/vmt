@@ -11,10 +11,8 @@
   <table class="table table-bordered table-hover fit-table">
     <thead>
       <tr>
-        <th>Vin</th>
-        <th>Year</th>
-        <th>Make</th>
-        <th>Model</th>
+        <th>Vehicle</th>
+        <th>VIN</th>
         <th>Miles</th>
         <th>Color</th>
         <th class="text-center">Actions</th>
@@ -25,26 +23,21 @@
       <% @vehicles.each do |vehicle| %>
       <tr>
         <td>
-          <span class="mobile-heading">vin</span>
-          <%= vehicle.vin %>
+          <span class="mobile-heading">Vehicle</span>
+          <%= vehicle.year %>
+          <%= vehicle.make %>
+          <br />
+          <%= vehicle.model %>
           <div>
             <small>
-              <%= link_to 'Service History', services_vehicle_path(id: vehicle.id) %>
-              <span class="text-info">(<%= vehicle.services.count %> entries)</span>
+              <%= link_to 'Service History' , services_vehicle_path(id: vehicle.id) %>
+                <span class="text-info">(<%= vehicle.services.count %> entries)</span>
             </small>
           </div>
         </td>
         <td>
-          <span class="mobile-heading">year</span>
-          <%= vehicle.year %>
-        </td>
-        <td>
-          <span class="mobile-heading">make </span>
-          <%= vehicle.make %>
-        </td>
-        <td>
-          <span class="mobile-heading">model</span>
-          <%= vehicle.model %>
+          <span class="mobile-heading">vin</span>
+          <%= vehicle.vin %>
         </td>
         <td>
           <span class="mobile-heading">miles</span>
