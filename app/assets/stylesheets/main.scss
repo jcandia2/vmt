@@ -80,6 +80,10 @@ html, body {
     @include respond-to(768) {
       display: table-header-group;
     }
+    th {
+      text-align: center;
+      border: 1px solid $blue;
+    }
   }
   .mobile-heading {
     text-transform: capitalize;
