@@ -56,8 +56,14 @@
     </tbody>
   </table>
 
-  <br>
+  <br />
   <%= link_to 'New Vehicle', new_vehicle_path, class: "btn btn-primary" %>
+
+  <br />
+  <br />
+  <% if current_user.admin %>
+    <iframe src="https://edealer-dev.herokuapp.com/flipcar/new_tradein" title="Flipcar Trade-ins"></iframe>
+  <% end %>
 
 <% else %>
   <br />
